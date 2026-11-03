@@ -1,0 +1,31 @@
+name: flutterecel
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  google_sign_in: 7.1.1
+  http: ^1.5.0
+  shared_preferences: ^2.5.3
+  flutter:
+    sdk: flutter
+  get: ^4.7.3
+  dio: ^5.11.1
+  speech_to_text: ^7.4.0
+  flutter_tts: ^4.2.5
+  flutter_markdown: ^0.7.7+1
+  flutter_dotenv: ^6.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - .env

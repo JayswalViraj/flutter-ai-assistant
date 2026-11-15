@@ -36,14 +36,25 @@ android {
         versionName = flutter.versionName
     }
 
-        signingConfigs {
-        create("release") {
+signingConfigs {
+    create("release") {
+        if (System.getenv("CI")?.toBoolean() == true) {
+            // Codemagic signing
+            storeFile = file(System.getenv("CM_KEYSTORE_PATH")!!)
+            storePassword = System.getenv("CM_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("CM_KEY_ALIAS")
+            keyPassword = System.getenv("CM_KEY_PASSWORD")
+        } else {
+            // Local Windows signing
             keyAlias = keystoreProperties.getProperty("keyAlias")
             keyPassword = keystoreProperties.getProperty("keyPassword")
-            storeFile = keystoreProperties.getProperty("storeFile")?.let { file(it) }
+            storeFile = keystoreProperties.getProperty("storeFile")?.let {
+                file(it)
+            }
             storePassword = keystoreProperties.getProperty("storePassword")
         }
     }
+}
 
     buildTypes {
         release {

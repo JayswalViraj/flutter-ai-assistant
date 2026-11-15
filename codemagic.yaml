@@ -9,6 +9,8 @@ workflows:
 
     environment:
       flutter: 3.35.7
+      android_signing:
+        - AI Assistant
       groups:
         - gemini_config
 

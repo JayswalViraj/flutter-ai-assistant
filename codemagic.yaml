@@ -46,6 +46,8 @@ workflows:
         recipients:
           - viraj@mailinator.com
           - dawapi6964@chuwel.com
+          - viraj.jayswal@mailinator.com
+          
 
         notify:
           success: true

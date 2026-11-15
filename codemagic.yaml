@@ -9,10 +9,13 @@ workflows:
 
     environment:
       flutter: 3.35.7
+      groups:
+        - gemini_config
 
     scripts:
-      - name: Check Flutter Version
-        script: flutter --version
+      - name: Create Environment File
+        script: |
+          echo "GEMINI_API_KEY=$GEMINI_API_KEY" > .env
 
       - name: Install Dependencies
         script: flutter pub get
